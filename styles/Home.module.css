@@ -89,3 +89,7 @@
     flex-direction: column;
   }
 }
+
+.inter {
+  font-family: 'Inter', sans-serif;
+}
