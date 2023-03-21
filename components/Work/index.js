@@ -1,25 +1,18 @@
-import Image from 'next/image'
-import acLogo from '../../public/AmberLogo.png'
-import cdiLogo from '../../public/cdi.png';
-import intervennLogo from '../../public/intervenn-logo-full.svg';
-import Item from '../Item';
-
-export default function Work() {
+export default function Work(props) {
+    const item = props.data;
     return (
         <>
-            <div className='text-center py-10 mt-16'>
-                <h1 className='text-2xl lg:text-4xl text-neutral-500'>Work</h1>
-                <div className='inline-flex flex-wrap justify-center lg:items-center px-5 lg:text-center py-10'>
-                    <div className='mx-0 lg:mx-5 pb-0 lg:pb-0'>
-                        <Item link="https://carbondigitalinc.com/" logo={cdiLogo} alt="Carbon Digital"/>
-                    </div>
-                    <div className='mr-0 lg:mx-5 pb-0 lg:pb-0'>
-                        <Item link="https://ambercreative.sg/" logo={acLogo} alt="Carbon Digital"/>
-                    </div>
-                    <div className='ml-0 lg:mx-5'>
-                        <Item link="https://intervenn.com/" logo={intervennLogo} alt="Intervenn BioSciences"/>
-                    </div>
-                </div>
+            <div className='py-4'>
+              <div className='mb-1'>
+                <h3 className='text-gray-400'>{item.date}</h3>
+              </div>
+              <div>
+                <h3 className='text-lg'>{item.position} at <a href={item.company_link} className='font-bold hover:underline' target="_blank">{item.company}</a> </h3>
+                <h6 className='text-sm text-gray-600'>{item.location}</h6>
+                <p className='text-sm text-gray-500 mt-1'>
+                    {item.description}
+                </p>
+              </div>
             </div>
         </>
     )
